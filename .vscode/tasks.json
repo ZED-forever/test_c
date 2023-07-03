@@ -1,0 +1,35 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe 生成活动文件",
+            "command": "D:\\software1\\GCC_mingw64\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-I","D:/workstation/C/head",
+                "-I","D:/workstation/C/src",//这里必须分开写，连着写直接报错
+                // "-I","D:/software1/OpenSSL-Win64/include",
+                // "-L","D:/software1/OpenSSL-Win64/lib",
+                // "-l","ssl",
+                // "-l","crypto",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                // "-fexec-charset=GBK"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ],
+    "version": "2.0.0"
+}

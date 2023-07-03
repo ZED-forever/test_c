@@ -1,0 +1,9 @@
+{
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "game.h": "c",
+        "stdio.h": "c",
+        "time.h": "c",
+        "stdlib.h": "c"
+    }
+}
