@@ -2,27 +2,69 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Stu{
-    char name[10];
-    int age;
-    char id[10];
-}Stu;//这里需要分号
-void print1(Stu s){
-    printf("%s\n%d\n%s\n",s.name,s.age,s.id);
-}
-void print2(Stu* ps){
-    printf("%s\n%d\n%s\n",ps->name,ps->age,ps->id);
-}
-int main(){
-    //使用struct Stu创建了一个对象s1，并初始化
-    Stu s1 = {"张三",20,"2023063001"};
-    Stu* ps = &s1;
-    // printf("%s\n%d\n%s\n",s1.name,s1.age,s1.id);
-    // printf("%s\n%d\n%s\n",(*ps).name,ps->age,ps->id);
-    print1(s1);
-    print2(ps);
-    return 0;
-}
+
+
+// //自己写一个函数代替strcpy，注意字符串最后的\0也要拷贝
+// void my_strcpy(char* arr1,char* arr2){
+//     //这种写法很简洁，最后拷贝 \0 正好ASCII码 为0
+//     while(*arr1++ = *arr2++){
+//         ;
+//     }
+// }
+// int main(){
+//     char arr1[] = "#############";
+//     char arr2[] = "haha";
+//     my_strcpy(arr1,arr2);
+//     printf("arr1 = %s\n",arr1);
+//     return 0;
+// }
+
+
+
+// //越界死循环- 且release正常
+// int main(){
+//     {
+//         int tmp = 0;
+//     }
+//     int i = 0;
+//     int arr[10] = {0};
+//     for(i=0;i<12;i++){
+//         arr[i] = 0;
+//         printf("hehe\n");//这个release正常，debug死循环  
+//         //一次调试时&i 0x61fe1c    &arr 0x61fdf0   中间差了44字节，相当于11个int（4字节）
+//         //可以看出修改arr[11]时，其实也修改了i值
+//     }
+//     return 0;
+// }
+
+
+
+// typedef struct Stu{
+//     char name[10];
+//     int age;
+//     char id[20];
+// }Stu;//这里需要分号
+// void print1(Stu s){
+//     printf("%s\n%d\n%s\n",s.name,s.age,s.id);
+// }
+// void print2(Stu* ps){
+//     printf("%s\n%d\n%s\n",ps->name,ps->age,ps->id);
+// }
+// int main(){
+//     //使用struct Stu创建了一个对象s1，并初始化
+//     Stu s1 = {"张三",20,"2023063001"};
+//     Stu* ps = &s1;
+//     // printf("%s\n%d\n%s\n",s1.name,s1.age,s1.id);
+//     // printf("%s\n%d\n%s\n",(*ps).name,ps->age,ps->id);
+//     print1(s1);//-O2参数，输出
+//     //张三
+//     //20
+//     //2023063001@   但是把上面的printf注释取消后就可以正常打印。为什么?
+//     //原因是字符串id没有'\0',开始的长度为char id[10]，正好是输入的字符长度，所以没有终止符
+//     //而注释取消printf后，打印正常可能是内部有什么优化，缓冲之类的。而且-g调试的时候对这种情况的处理不同，不会出错
+//     print2(ps);
+//     return 0;
+// }
 
 
 
