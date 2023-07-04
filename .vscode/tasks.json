@@ -6,7 +6,7 @@
             "command": "D:\\software1\\GCC_mingw64\\mingw64\\bin\\gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
+                "-g",//就是这个参数，-g是debug，-O2是release
                 "${file}",
                 "-I","D:/workstation/C/head",
                 "-I","D:/workstation/C/src",//这里必须分开写，连着写直接报错
