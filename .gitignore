@@ -9,3 +9,4 @@ AOS_2/curve/CMakeLists.txt.user
 AOS_2/curve/curve.cpp
 AOS_2/curve/curve.h
 AOS_2/curve/main.cpp
+AOS_2/main.c
